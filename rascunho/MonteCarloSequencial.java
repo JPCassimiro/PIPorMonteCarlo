@@ -2,6 +2,7 @@
 public class MonteCarloSequencial{
     public static void main(String[] args) {
         calc(4550000);
+        // calc(3000);
     }
 
     public static void calc(int n) {
@@ -17,7 +18,8 @@ public class MonteCarloSequencial{
         }
         long timeEnd = System.currentTimeMillis(); 
         double pi = 4.0 * hit / n;
-        System.out.println("\npi: "+pi);
-        System.out.println("em: "+(timeEnd-timeBegin)+"ms");
+        System.out.println("\nPi: "+pi);
+        System.out.println("\nCom: " + n + " pontos");
+        System.out.println("\nEm: "+(timeEnd-timeBegin)+"ms");
     }
 }
