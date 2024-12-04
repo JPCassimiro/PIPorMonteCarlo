@@ -1,8 +1,10 @@
 
 public class MonteCarloSequencial{
     public static void main(String[] args) {
-        calc(4550000);
-        // calc(3000);
+        // calc(4550000);
+        calc(8000);
+        // calc(150000);
+        // calc(1000000);
     }
 
     public static void calc(int n) {
@@ -11,7 +13,6 @@ public class MonteCarloSequencial{
         for(int i = 0; i < n; i++){
             double x = Math.random();
             double y = Math.random();
-
             if(x * x + y * y < 1.0){
                 hit++;
             }

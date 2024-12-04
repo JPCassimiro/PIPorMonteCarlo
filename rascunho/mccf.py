@@ -1,9 +1,6 @@
 import random
 import time
-import threading
-
-# lock para resultsThread
-lock = threading.Lock()
+import concurrent.futures
 
 #globais
 num_inside = 0
@@ -19,9 +16,8 @@ def estimate_piThread(totalPoints, resultsThreads, localRandom):
         if x**2 + y**2 <= 1:
             hitLocal += 1
     timeEnd = int(round(time.time() * 1000))
-    with lock:
-        resultsThreads.append(hitLocal)
-    print("\n",threading.current_thread().name, "terminou sua parte em: ", (timeEnd - timeStart), "ms")
+    resultsThreads.append(hitLocal)
+    print("\nterminou sua parte em: ", (timeEnd - timeStart), "ms")
     
 if __name__ == "__main__":
     iterate = 4550000 #valor padrão
@@ -29,19 +25,15 @@ if __name__ == "__main__":
     # iterate = 9000
     # iterate = 500000
     # iterate = 1000000000000 #trava    
-    numThreads = 30
+    numThreads = 8
     timeStart = int(round(time.time() * 1000))
-
-    threads = []
-    for i in range(numThreads):  # criando threads
-        localRandom = random # passa instace de random para cada thread, assim cada thread tem seu random individual
-        t = threading.Thread(target=estimate_piThread, args=(iterate // numThreads, resultsThreads, localRandom))
-        threads.append(t)
-        t.start()
-        
-    for t in threads:
-        t.join()
-
+    
+    with concurrent.futures.ThreadPoolExecutor(max_workers=numThreads) as executor:
+        futures = []
+        for i in range(numThreads):
+            threadRandom = random
+            futures.append(executor.submit(estimate_piThread, totalPoints = (iterate//numThreads), resultsThreads=resultsThreads, localRandom=threadRandom))
+            
     num_inside = sum(resultsThreads)
 
     piResult = 4 * num_inside / iterate
