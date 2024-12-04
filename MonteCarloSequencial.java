@@ -26,7 +26,7 @@ public class MonteCarloSequencial {
 
         double pi = 4.0 * hit / totalPoints;// propaga o resutaldo para os outros quadrantes do circulo
 
-        System.out.println("\nPi  estimado: " + pi);
+        System.out.println("\nPi estimado: " + pi);
         System.out.println("\nCom: " + totalPoints + " pontos totais");
         System.out.println("\nEm: " + (timeEnd - timeStart) + "ms");
     }
