@@ -12,6 +12,7 @@ public class MonteCarloThread {
 
         int totalPoints = 4550000; // valor padrão
 
+        // valores alternativos para teste
         // int n = 8000;
         // int n = 150000;
         // int n = 500000;
