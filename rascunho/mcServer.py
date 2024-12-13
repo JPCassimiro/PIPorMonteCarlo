@@ -2,7 +2,7 @@ import socket
 import threading
 import time
 
-#!!COMO QUE FAZ?
+#!!TODO LIST
 #criar conexão client server ✓
 #garantir que o server não explode se o client desconectar ✓
 #iniciar uma operação de teste, um "hello world" no client ✓
@@ -28,17 +28,17 @@ import time
             #perde a funcionalidade de esperar por todos
             #ainda pode funcionar, mas fica meio sem sentido pra medição de tempo
             #manter essa aproximação em mente para caso de merda
-            
-#lidar com desconexão do client antes de cada um receber sua thread(se não der não deu)
                 
 #traduzir o codigo da operação no for de java pra python ✓
 #colocar o codigo como uma função no client ✓
-#dividir a porcentagem do problema para cada client
-#executar
-#receber
-#juntar as partes
+#dividir a porcentagem do problema para cada client ✓
+#executar ✓
+#receber ✓
+#juntar as partes ✓
 
-#opcional
+#!!lidar com desconexão do client antes de cada um receber sua thread(se não der não deu)
+
+#!!opcional
 #usar select para deteção de desconexão antes do calculo
 #encontrar uma forma de lidar com uma possivel desconexão durante o calculo
 
@@ -106,10 +106,13 @@ def main():
                 connected_clients.pop()
                 conn.shutdown(2)
                 conn.close()
-                
+    #a partir desse ponto, não aceitamos mais conexões
+    
+    #junta as threads          
     for t in threads:
         t.join()
         
+    #resultado final
     num_inside = sum(partial_results)
     pi_result = 4 * num_inside / total_points
 

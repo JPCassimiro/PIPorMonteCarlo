@@ -2,7 +2,7 @@ import socket
 import random
 import time
 
-
+#função do calculo
 def estimate_pi(totalPoints):
     hit = 0
     for i in range(totalPoints):
@@ -22,13 +22,12 @@ if __name__=="__main__":
         s.sendall(bytes("\nHello World",'UTF-8'))
         while loop:
             try:
-                # data = s.recv(1024).decode()
-                # print(f"{str(data)}")
-                
+                #recebe parte que vai calcular
                 recieved_slice = int(s.recv(1024).decode())
                 print(f"{recieved_slice}")
 
                 if(recieved_slice > 0):
+                    #faz calculo e retorna
                     time_start = int(round(time.time() * 1000))
                     return_value = estimate_pi(recieved_slice)
                     time_end = int(round(time.time() * 1000))
@@ -36,7 +35,6 @@ if __name__=="__main__":
                     print(f"\nProcesso terminado em {time_end-time_start}ms")
                     loop = False
                     break
-                    
             except:
                 print("\nErro na conexão")
                 loop = False
