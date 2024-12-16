@@ -2,11 +2,6 @@ public class MonteCarloSequencial {
     public static void main(String[] args) {
         // valor total de pontos
         estimatePi(4550000); // valor padrão
-
-        // valores alternativos para teste
-        // estimatePi(8000);
-        // estimatePi(150000);
-        // estimatePi(1000000);
     }
 
     public static void estimatePi(int totalPoints) {
@@ -31,3 +26,6 @@ public class MonteCarloSequencial {
         System.out.println("\nEm: " + (timeEnd - timeStart) + "ms");
     }
 }
+
+// Original por Henrique Felipe
+// Disponível em: https://www.blogcyberini.com/2018/09/calculando-o-valor-de-pi-via-metodo-de-monte-carlo.html
