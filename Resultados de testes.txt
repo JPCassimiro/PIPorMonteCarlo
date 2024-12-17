@@ -1,0 +1,38 @@
+Foram feitas 10 execuções usando cada método usando um computador com a seguinte CPU:
+
+AMD Ryzen 5 3500U, 2.1Ghz, 4 nucleos, 8 Threads
+
+-------------------------------------------
+
+Sequêncial
+
+média de tempo: 319.5ms
+
+média resultado: 3.1417324835164835
+
+-------------------------------------------
+
+-------------------------------------------
+
+Threads
+
+média de tempo total: 1171.6ms
+
+média de tempo de cada thread: 1126.55ms
+
+média resultado: 3.14140501098901105
+
+-------------------------------------------
+
+-------------------------------------------
+
+Distribuido
+
+média de tempo total: 7.726s
+
+média de tempo de cada client: 2.75425s
+
+média resultado final: 3.1415516
+
+-------------------------------------------
+
