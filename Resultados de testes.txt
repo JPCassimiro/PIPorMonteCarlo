@@ -26,7 +26,7 @@ média resultado: 3.14140501098901105
 
 -------------------------------------------
 
-Distribuido
+Distribuído
 
 média de tempo total: 7.726s
 
